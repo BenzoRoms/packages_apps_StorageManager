@@ -17,6 +17,7 @@
 package com.android.storagemanager.deletionhelper;
 
 import android.content.Context;
+import android.os.SystemProperties;
 import android.support.v7.preference.Preference;
 import android.text.format.DateUtils;
 import android.text.format.Formatter;
@@ -124,10 +125,14 @@ public class DownloadsDeletionPreferenceGroup extends CollapsibleCheckboxPrefere
         // If there are no files to clear, show the empty text instead.
         if (itemCount != 0) {
             setSummary(context.getString(R.string.deletion_helper_downloads_category_summary,
-                    Formatter.formatFileSize(context, bytes)));
+                    Formatter.formatFileSize(context, bytes),
+                    SystemProperties.getInt(FetchDownloadsLoader.DEBUG_FILE_AGE_OVERRIDE,
+                            FetchDownloadsLoader.MINIMUM_AGE_DAYS)));
         } else {
             setSummary(context.getString(R.string.deletion_helper_downloads_summary_empty,
-                    Formatter.formatFileSize(context, bytes)));
+                    Formatter.formatFileSize(context, bytes),
+                    SystemProperties.getInt(FetchDownloadsLoader.DEBUG_FILE_AGE_OVERRIDE,
+                            FetchDownloadsLoader.MINIMUM_AGE_DAYS)));
         }
     }
 

@@ -30,8 +30,8 @@ import java.util.ArrayList;
  * directory which have not been modified in longer than 90 days.
  */
 public class FetchDownloadsLoader extends AsyncLoader<FetchDownloadsLoader.DownloadsResult> {
-    private static final String DEBUG_FILE_AGE_OVERRIDE = "debug.asm.file_age_limit";
-    private static final int MINIMUM_AGE_DAYS = 30;
+    public static final String DEBUG_FILE_AGE_OVERRIDE = "debug.asm.file_age_limit";
+    public static final int MINIMUM_AGE_DAYS = 30;
     private File mDirectory;
 
     /**
