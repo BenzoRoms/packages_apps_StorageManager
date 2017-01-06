@@ -235,7 +235,7 @@ public class AppDeletionType implements DeletionType, ApplicationsState.Callback
 
     private void maybeNotifyListener() {
         if (mListener != null) {
-            mListener.onFreeableChanged(mAppEntries.size(), getTotalAppsFreeableSpace(true));
+            mListener.onFreeableChanged(mAppEntries.size(), getTotalAppsFreeableSpace(false));
         }
     }
 
