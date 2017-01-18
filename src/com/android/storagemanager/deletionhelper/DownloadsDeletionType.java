@@ -117,6 +117,7 @@ public class DownloadsDeletionType implements DeletionType, LoaderCallbacks<Down
     @Override
     public void onLoadFinished(Loader<DownloadsResult> loader, DownloadsResult data) {
         mMostRecent = data.youngestLastModified;
+        mFiles.clear();
         for (File file : data.files) {
             mFiles.add(file);
         }
